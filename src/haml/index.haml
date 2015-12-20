@@ -14,8 +14,17 @@
     %link{rel:'stylesheet', href:'css/app.css'}
 
   %body
-    %script{type:'text/x-handlebars'}
+    %script{type:'text/x-handlebars', data: {template: {name: 'application'}}}
       .navbar
       .container
+        {{outlet}}
       %footer.container
+
+    %script{type: 'text/x-handlebars', data: {template: {name: 'index'}}}
+      %h1 Welcome to the Flint & Flame!
+
+    %script{type: 'text/x-handlebars', data: {template: {name: 'about'}}}
+      %h1 About the Fire Spirits!
+
+
  
