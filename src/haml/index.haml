@@ -15,10 +15,21 @@
 
   %body
     %script{type:'text/x-handlebars', data: {template: {name: 'application'}}}
-      .navbar
+      .navbar.navbar-default
+        .container
+          %a.navbar-brand{href:'#'}
+            %img{src:'images/logo.png', alt:'logo', height:'34', width:'224'}
+          %ul.nav.navbar-nav.navbar-right
+            %li.active{href:'#'} Home
+            %li{href:'#/about'} About
       .container
         {{outlet}}
       %footer.container
+        %hr
+        %p.pull-left
+          %span.glyphicon.glyphicon-copyright-mark
+          2013 The Flint and Flame
+        %p.pull-right{href:'#/credits'} Credits
 
     %script{type: 'text/x-handlebars', data: {template: {name: 'index'}}}
       %h1 Welcome to the Flint & Flame!
