@@ -1,16 +1,21 @@
 !!!
 %html
   %head
-    %title js-play
-    %link{href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel: 'stylesheet'}
-    %link{rel:'stylesheet', href:'css/app.css'}
-
-  %body
-    .container
-      %h1 js-play
+    %title code
     %script{src:'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'}
     %script{src:'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'}
     %script{src:'https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.2.0/ember.min.js'}
     %script{src:'https://cdnjs.cloudflare.com/ajax/libs/ember-data.js/2.2.1/ember-data.min.js'}
+    / TODO move to server-side precompilation via grunt-ember-templates
+    %script{src:'http://builds.emberjs.com/release/ember-template-compiler.js'}
     %script{src:'js/app.js'}
+
+    %link{href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel: 'stylesheet'}
+    %link{rel:'stylesheet', href:'css/app.css'}
+
+  %body
+    %script{type:'text/x-handlebars'}
+      .navbar
+      .container
+      %footer.container
  
