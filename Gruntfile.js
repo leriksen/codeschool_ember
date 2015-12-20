@@ -1,10 +1,11 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     clean: {
-      js:   ['public/js'],
-      html: ['public/**/*.html'],
-      css:  ['public/css', '.sass-cache'],
-      map:  ['**/*.map']
+      js:     ['public/js'],
+      html:   ['public/**/*.html'],
+      css:    ['public/css', '.sass-cache'],
+      images: ['public/images'],
+      map:    ['**/*.map']
     },
     jshint: {
       files: ['public/js/*.js'],
@@ -55,6 +56,21 @@ module.exports = function(grunt) {
         ]
       }
     },
+    copy: {
+      dist: {
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: 'src',
+            dest: 'public',
+            src: [
+              'images/*.{ico,png,gif,jpg,svg}',
+            ]
+          },
+        ]
+      }
+    },
     watch: {
       coffee: {
         files: ['src/coffee/**/*.coffee'],
@@ -71,6 +87,10 @@ module.exports = function(grunt) {
       scripts: {
         files: ['public/js/**/*.js', 'Gruntfile.js'],
         tasks: ['jshint']
+      },
+      images: {
+        files: ['src/images/*.{ico,png,gif,jpg,svg}'],
+        tasks: ['images']
       }
     }
   });
@@ -82,6 +102,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-haml2html');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['coffee', 'jshint', 'haml', 'sass']);
-};
+  grunt.registerTask('default', ['coffee', 'jshint', 'haml', 'sass', 'copy']);
+}
+
